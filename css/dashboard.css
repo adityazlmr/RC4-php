@@ -1,0 +1,154 @@
+@media only screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+  }
+
+  .footer,
+  .navbar {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .footer,
+  .main,
+  .navbar {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar-brand-img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .footer,
+  .main,
+  .navbar {
+    width: 100%;
+  }
+}
+
+html {
+  overflow: auto;
+  position: relative;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  overflow: auto;
+  font: 14px sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.main {
+  min-height: 100%;
+}
+
+.container {
+  padding: 0;
+}
+
+/* =========================================================navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-brand-img {
+  width: 100px;
+  height: 50px;
+}
+
+.btn-logout {
+  float: right;
+  border-width: 2px;
+  background-color: #ffffff;
+  border-color: #ff0000;
+  color: #fff;
+}
+
+.btn-logout:hover {
+  background-color: #ff0000;
+  border-color: #acacac;
+}
+
+.table-responsive {
+  background-color: #fff;
+}
+
+/* ===================================================================== */
+
+/* Style untuk section di atas footer */
+section {
+  margin-bottom: 100px;
+}
+
+/* Style untuk footer */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.copyright {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Style untuk sosial media icon */
+
+.btn-floating i {
+  font-size: 20px;
+}
+
+.btn-floating {
+  display: inline-flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-floating:hover {
+  transform: translateY(-5px) rotate(360deg);
+}
+
+.btn-floating i.fab.fa-facebook-f {
+  color: #3b5998;
+}
+
+.btn-floating i.fab.fa-twitter {
+  color: #55acee;
+}
+
+.btn-floating i.fab.fa-instagram {
+  color: #ac2bac;
+}
+
+.btn-floating i.fab.fa-linkedin-in {
+  color: #0082ca;
+}
+
+.btn-floating i.fab.fa-github {
+  color: #333333;
+}
+
+.btn-floating.btn-primary:hover {
+  background-color: #ffffff;
+  color: #ffffff;
+}

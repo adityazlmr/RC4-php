@@ -1,0 +1,406 @@
+@media only screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+  }
+
+  .footer,
+  .box,
+  .navbar {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #formCont {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+  }
+
+  .footer,
+  .box,
+  .navbar {
+    width: 100%;
+  }
+
+  .animate__animated {
+    animation-duration: 0.5s;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar-brand-img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .footer,
+  .box,
+  .navbar {
+    width: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font: 14px sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 0;
+}
+
+/* =========================================================navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-brand-img {
+  width: 100px;
+  height: 50px;
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fc4a1a;
+}
+
+.btn-logout {
+  float: right;
+  border-width: 2px;
+  background-color: #ffffff;
+  border-color: #ff0000;
+  color: #fff;
+}
+
+.btn-logout:hover {
+  background-color: #ff0000;
+  border-color: #acacac;
+}
+#about {
+  padding-top: 50px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    z-index: 1;
+    display: none;
+    width: 30%;
+    height: fit-content;
+    padding: 1rem;
+    overflow-y: scroll;
+    background-color: #f8f9fa;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-toggler {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+/* =============================================================== */
+
+/* =============================================================== */
+#formCont .container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #383838;
+}
+
+.animate__animated {
+  animation-duration: 1s;
+}
+
+.animate__fadeInLeftBig {
+  animation-name: fadeInLeftBig;
+}
+
+.animate__wobble {
+  animation-name: wobble;
+}
+
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+  90% {
+    transform: translateX(3px) rotate(0.6deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border-radius: 0;
+  border: none;
+  background-color: #f2f2f2;
+  box-shadow: none;
+  font-size: 1.1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+#encryptBtn,
+#decryptBtn {
+  border-radius: 0;
+  background-color: #162b40;
+  border-color: #162b40;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+#encryptBtn:hover,
+#decryptBtn:hover {
+  background-color: #7286d3;
+  border-color: #7286d3;
+}
+
+#encryptBtn:disabled,
+#decryptBtn:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+.modal-body {
+  font-size: 1.1rem;
+}
+input[type="file"] {
+  overflow: hidden;
+}
+input[type="password"],
+input[type="file"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+/* =============================================================== */
+/* .text {
+    color: #000000;
+  } */
+
+/* Style untuk bagian About Us */
+.about-content p {
+  text-align: justify;
+}
+
+/* Style untuk box pada section */
+.about-content {
+  background-image: url("../img/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+/* Style untuk teks pada section */
+.row h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.about-content h2 {
+  color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Style untuk gambar pada section */
+.about-content img {
+  margin-bottom: 20px;
+}
+
+/* Animasi fade up untuk semua elemen dalam section */
+#about [data-aos="fade-up"] {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  transform-origin: bottom;
+}
+
+#about [data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+#about [data-aos="fade-down"] {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  transform-origin: bottom;
+}
+
+#about [data-aos="fade-down"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi fade right untuk box1 */
+#about [data-aos="fade-right"] {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  transform-origin: right;
+}
+
+#about [data-aos="fade-right"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animasi fade left untuk box2 */
+#about [data-aos="fade-left"] {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  transform-origin: left;
+}
+
+#about [data-aos="fade-left"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Style untuk section di atas footer */
+section {
+  margin-bottom: 100px;
+}
+
+/* Style untuk footer */
+.copyright {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Style untuk sosial media icon */
+
+.btn-floating i {
+  font-size: 20px;
+}
+
+.btn-floating {
+  display: inline-flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-floating:hover {
+  transform: translateY(-5px) rotate(360deg);
+}
+
+.btn-floating i.fab.fa-facebook-f {
+  color: #3b5998;
+}
+
+.btn-floating i.fab.fa-twitter {
+  color: #55acee;
+}
+
+.btn-floating i.fab.fa-instagram {
+  color: #ac2bac;
+}
+
+.btn-floating i.fab.fa-linkedin-in {
+  color: #0082ca;
+}
+
+.btn-floating i.fab.fa-github {
+  color: #333333;
+}
+
+.btn-floating.btn-primary:hover {
+  background-color: #ffffff;
+  color: #ffffff;
+}
