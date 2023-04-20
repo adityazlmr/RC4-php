@@ -1,0 +1,15 @@
+{
+    "name": "a/rc4",
+    "autoload": {
+        "psr-4": {
+            "A\\Rc4\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "adityazlmr",
+            "email": "adityazulmar@gmail.com"
+        }
+    ],
+    "require": {}
+}
