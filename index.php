@@ -37,7 +37,7 @@ if (!isset($_SESSION['ID'])) {
     </script>
 </head>
 
-<body style="background-image: url('img/background.svg');" id="asdasd">
+<body style="background-image: url('img/background.svg');">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed top sticky-top">
         <div class="container-fluid">
