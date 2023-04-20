@@ -35,9 +35,6 @@ if (!isset($_SESSION['ID'])) {
             });
         }
     </script>
-
-
-
 </head>
 
 <body style="background-image: url('img/background.svg');" id="asdasd">
