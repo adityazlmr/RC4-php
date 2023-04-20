@@ -10,7 +10,6 @@ if (!isset($_SESSION['ID'])) {
 
 <!DOCTYPE html>
 <html>
-<!-- asdasdasdasd -->
 
 <head>
     <title class="text">RC4 User</title>
@@ -41,7 +40,7 @@ if (!isset($_SESSION['ID'])) {
 
 </head>
 
-<body style="background-image: url('img/background.svg');">
+<body style="background-image: url('img/background.svg');" id="asdasd">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed top sticky-top">
         <div class="container-fluid">
