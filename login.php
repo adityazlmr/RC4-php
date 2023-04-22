@@ -26,15 +26,19 @@ if (isset($_POST['submit'])) {
         $result = $con->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $_SESSION['ID'] = $row['id'];
-            $_SESSION['ROLE'] = $row['role'];
-            $_SESSION['NAME'] = $row['name'];
-            if ($row['role'] == 'admin') {
-                header("Location: dashboard.php");
-                die();
+            if (md5($_POST['password']) == $row['password']) {
+                $_SESSION['ID'] = $row['id'];
+                $_SESSION['ROLE'] = $row['role'];
+                $_SESSION['NAME'] = $row['name'];
+                if ($row['role'] == 'admin') {
+                    header("Location: dashboard.php");
+                    die();
+                } else {
+                    header("Location: index.php");
+                    die();
+                }
             } else {
-                header("Location: index.php");
-                die();
+                $errorMsg = "Incorrect password";
             }
         } else {
             $errorMsg = "No user found on this username";
@@ -49,9 +53,15 @@ if (isset($_POST['submit'])) {
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <style>
         body {
             font: 14px sans-serif;
@@ -85,6 +95,10 @@ if (isset($_POST['submit'])) {
         .text {
             color: #fff;
         }
+
+        .close {
+            border: none;
+        }
     </style>
 </head>
 
@@ -92,26 +106,32 @@ if (isset($_POST['submit'])) {
     <div class="wrapper">
         <h3 class="text">Login</h3>
         <br>
-
         <?php if (isset($errorMsg)) { ?>
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <?php echo $errorMsg; ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         <?php } ?>
+        <script>
+            $(".alert .close").click(function() {
+                $(this).parent().fadeOut("slow");
+            });
+        </script>
+
         <form action="" method="POST">
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                <input type="text" class="form-control" name="username" placeholder="Enter Username" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
             </div>
             <div class="form-group">
                 <p class="text">Don't have an account?<a href="register.php"> Register here!</a></p>
                 <input type="submit" name="submit" class="btn btn-primary btn-success" value="Login">
             </div>
         </form>
-
     </div>
 </body>
 

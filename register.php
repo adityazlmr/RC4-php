@@ -23,11 +23,15 @@ if (isset($_POST['submit'])) {
 <head>
     <title>Register</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
         body {
             font: 14px sans-serif;
@@ -83,12 +87,16 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Enter Password" required="">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="text" for="role">Role:</label>
                 <select class="form-control" name="role" required="">
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>
+            </div> -->
+            <div class="form-group">
+                <label class="text">Role:</label>
+                <input type="text" class="form-control" name="role" value="User" readonly>
             </div>
             <div class="form-group">
                 <p class="text">Already have account ?<a href="login.php"> Login</a></p>
