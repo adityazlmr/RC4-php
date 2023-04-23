@@ -1,7 +1,16 @@
 <?php
+// Memulai session
+
+session_start();
+include_once('config.php');
+
+if (!isset($_SESSION['ID'])) {
+    header("Location: login.php");
+    die();
+}
+
 // Set memory limit for the script
 ini_set('memory_limit', '256M');
-
 // RC4 encryption function
 function rc4($key, $data)
 {
@@ -81,13 +90,15 @@ if (isset($_POST['encrypt'])) {
         $encryptedFilePath = $localDir . $encryptedFileName;
         file_put_contents($encryptedFilePath, $encryptedData);
 
-        // Simpan nama file dan password enkripsi ke dalam tabel files di dalam database
-        $conn = mysqli_connect("localhost", "root", "", "db_rc4");
-        $encryptedFileNameInDB = mysqli_real_escape_string($conn, $encryptedFileName);
-        $encryptionKeyInDB = mysqli_real_escape_string($conn, $encryptionKey);
-        $query = "INSERT INTO files (file_name, encryption_key) VALUES ('$encryptedFileNameInDB', '$encryptionKeyInDB')";
-        mysqli_query($conn, $query);
-        mysqli_close($conn);
+        // Simpan nama file, password enkripsi, dan username ke dalam tabel files di dalam database
+        $encryptedFileNameInDB = mysqli_real_escape_string($con, $encryptedFileName);
+        $encryptionKeyInDB = mysqli_real_escape_string($con, $encryptionKey);
+        $usernameInDB = mysqli_real_escape_string($con, $_SESSION['NAME']);
+
+        $query = "INSERT INTO files (file_name, encryption_key, username) VALUES ('$encryptedFileNameInDB', '$encryptionKeyInDB', '$usernameInDB')";
+        mysqli_query($con, $query);
+        mysqli_close($con);
+
 
         // Redirect ke halaman sukses
         echo '<script>alert("File berhasil dienkripsi dan disimpan di direktori ' . $localDir . '");window.location.href = "index.php";</script>';

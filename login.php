@@ -12,6 +12,7 @@ if (isset($_SESSION['ID'])) {
         exit();
     }
 }
+
 // Include database connectivity
 
 include_once('config.php');
@@ -30,6 +31,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['ID'] = $row['id'];
                 $_SESSION['ROLE'] = $row['role'];
                 $_SESSION['NAME'] = $row['name'];
+                $_SESSION['USERNAME'] = $row['username']; // Menyimpan username pada session
                 if ($row['role'] == 'admin') {
                     header("Location: dashboard.php");
                     die();

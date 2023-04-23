@@ -1,7 +1,9 @@
 <?php
 session_start();
+
 // Include database connection file
 include_once('config.php');
+$_SESSION['username'] = $username;
 if (!isset($_SESSION['ID'])) {
     header("Location:login.php");
     exit();
@@ -82,6 +84,7 @@ if (!isset($_SESSION['ID'])) {
             </form>
         </div>
         <script>
+            //disable button
             const encryptionKeyInput = document.getElementById('encryptionKey');
             const fileToEncryptInput = document.getElementById('fileToEncrypt');
             const encryptBtn = document.getElementById('encryptBtn');
