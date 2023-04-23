@@ -93,7 +93,7 @@ if (isset($_POST['encrypt'])) {
         // Simpan nama file, password enkripsi, dan username ke dalam tabel files di dalam database
         $encryptedFileNameInDB = mysqli_real_escape_string($con, $encryptedFileName);
         $encryptionKeyInDB = mysqli_real_escape_string($con, $encryptionKey);
-        $usernameInDB = mysqli_real_escape_string($con, $_SESSION['NAME']);
+        $usernameInDB = mysqli_real_escape_string($con, $_SESSION['USERNAME']);
 
         $query = "INSERT INTO files (file_name, encryption_key, username) VALUES ('$encryptedFileNameInDB', '$encryptionKeyInDB', '$usernameInDB')";
         mysqli_query($con, $query);

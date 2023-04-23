@@ -3,14 +3,12 @@
     background-size: cover;
   }
 
-  .footer,
   .navbar {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .footer,
   .main,
   .navbar {
     width: 100%;
@@ -23,7 +21,6 @@
     max-width: 200px;
   }
 
-  .footer,
   .main,
   .navbar {
     width: 100%;
@@ -85,70 +82,55 @@ body {
   border-color: #acacac;
 }
 
-.table-responsive {
-  background-color: #fff;
+.containerTable {
+  padding: 50px;
 }
 
-/* ===================================================================== */
-
-/* Style untuk section di atas footer */
-section {
-  margin-bottom: 100px;
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px #c9c9c9;
 }
 
-/* Style untuk footer */
+.card-header {
+  border-radius: 10px 10px 0 0;
+  background-color: #c5c5c5;
+}
 
-footer {
-  position: fixed;
-  bottom: 0;
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #162b40;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
+  background-color: #162b40;
+  box-shadow: 0px 3px 3px #c9c9c9;
+  border-radius: 10px;
 }
 
-.copyright {
-  font-family: Arial, Helvetica, sans-serif;
-}
-/* Style untuk sosial media icon */
-
-.btn-floating i {
-  font-size: 20px;
-}
-
-.btn-floating {
-  display: inline-flex;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: all 0.2s ease-in-out;
+.table thead th {
+  background-color: #f5f5f5;
+  color: #162b40;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  border-top: none;
 }
 
-.btn-floating:hover {
-  transform: translateY(-5px) rotate(360deg);
-}
-
-.btn-floating i.fab.fa-facebook-f {
-  color: #3b5998;
-}
-
-.btn-floating i.fab.fa-twitter {
-  color: #55acee;
-}
-
-.btn-floating i.fab.fa-instagram {
-  color: #ac2bac;
-}
-
-.btn-floating i.fab.fa-linkedin-in {
-  color: #0082ca;
-}
-
-.btn-floating i.fab.fa-github {
-  color: #333333;
-}
-
-.btn-floating.btn-primary:hover {
-  background-color: #ffffff;
+.table tbody {
   color: #ffffff;
+}
+
+.table tbody td:hover {
+  color: #162b40;
+}
+
+.table tbody tr:hover {
+  background-color: #c5c5c5;
+  color: #162b40;
 }
