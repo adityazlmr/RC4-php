@@ -59,7 +59,7 @@ if (!isset($_SESSION['ID'])) {
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-logout" onclick="location.href='logout.php'">
+            <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
                 <img src="icon/logout.svg" alt="Logout" width="16" height="16">
             </button>
         </div>

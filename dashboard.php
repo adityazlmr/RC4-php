@@ -20,13 +20,13 @@ if (!isset($_SESSION['ID'])) {
 </head>
 
 <body style="background-image: url('img/background.svg'); display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed top sticky-top">
+    <nav class="navbar navbar-expand-lg fixed top sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="img/navbar.png" alt="Brand logo" class="navbar-brand-img mx-auto">
             </a>
             <div class="ml-auto">
-                <button class="btn btn-logout" onclick="location.href='logout.php'">
+                <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
                     <img src="icon/logout.svg" alt="Logout" width="16" height="16">
                 </button>
             </div>
@@ -121,8 +121,6 @@ if (!isset($_SESSION['ID'])) {
             </div>
         </div>
     </div>
-
-
     <link rel="stylesheet" href="css/dashboard.css">
 </body>
 
