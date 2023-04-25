@@ -64,7 +64,6 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
 }
 
 .navbar-brand {
@@ -107,7 +106,7 @@ body {
   border-color: #acacac;
 }
 #about {
-  padding-top: 50px;
+  padding-top: 150px;
 }
 
 @media (max-width: 991.98px) {
@@ -159,17 +158,6 @@ body {
 
 .animate__wobble {
   animation-name: wobble;
-}
-
-@keyframes fadeInLeftBig {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 @keyframes wobble {

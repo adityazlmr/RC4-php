@@ -8,7 +8,7 @@ if (isset($_SESSION['ID'])) {
         header("Location: dashboard.php");
         exit();
     } else {
-        header("Location: index.php");
+        header("Location: userpage.php");
         exit();
     }
 }
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                     header("Location: dashboard.php");
                     die();
                 } else {
-                    header("Location: index.php");
+                    header("Location: userpage.php");
                     die();
                 }
             } else {
