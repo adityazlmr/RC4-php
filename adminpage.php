@@ -23,7 +23,7 @@ if (!isset($_SESSION['ID'])) {
     <title class="text">RC4 Admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/adminpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
 </head>
 
@@ -168,7 +168,7 @@ if (!isset($_SESSION['ID'])) {
             });
         </script>
     </div>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/adminpage.css">
 </body>
 
 </html>

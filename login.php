@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['ID'])) {
     // Redirect to appropriate page based on user role
     if ($_SESSION['ROLE'] == 'admin') {
-        header("Location: dashboard.php");
+        header("Location: adminpage.php");
         exit();
     } else {
         header("Location: userpage.php");
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['NAME'] = $row['name'];
                 $_SESSION['USERNAME'] = $row['username']; // Menyimpan username pada session
                 if ($row['role'] == 'admin') {
-                    header("Location: dashboard.php");
+                    header("Location: adminpage.php");
                     die();
                 } else {
                     header("Location: userpage.php");

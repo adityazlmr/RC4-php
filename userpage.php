@@ -23,7 +23,7 @@ if (!isset($_SESSION['ID'])) {
     <title class="text">RC4 User</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/userpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
@@ -295,7 +295,7 @@ if (!isset($_SESSION['ID'])) {
         </div>
     </footer>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/userpage.css">
 </body>
 
 </html>
