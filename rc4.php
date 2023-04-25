@@ -113,6 +113,21 @@ if (isset($_POST['decrypt'])) {
     if (!is_valid_key($decryptionKey)) {
         echo '<script>alert("Decryption Key Minimal 8 Karakter, 1 Huruf Kapital dan 1 Angka..");window.location.href = "userpage.php"</script>';
     } else {
+
+        // Mendapatkan nama file yang akan didekripsi
+        $fileName = basename($_FILES["fileToDecrypt"]["name"]);
+
+        // Cek apakah file terdapat di tabel 'files'
+        $query = "SELECT * FROM files WHERE file_name = '$fileName'";
+        $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_assoc($result);
+
+        if ($row) {
+            // Hapus data dari tabel 'files'
+            $query = "DELETE FROM files WHERE file_name = '$fileName'";
+            mysqli_query($con, $query);
+        }
+
         $fileToDecrypt = $_FILES['fileToDecrypt']['tmp_name'];
         $fileName = basename($_FILES["fileToDecrypt"]["name"]);
         $decryptedFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);

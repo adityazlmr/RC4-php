@@ -28,18 +28,6 @@ if (!isset($_SESSION['ID'])) {
 </head>
 
 <body style="background-image: url('img/background.svg'); display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
-    <nav class="mainnavbar navbar navbar-expand-lg fixed top sticky-top">
-        <div class="container-fluid">
-            <a class="mainnavbar-brand navbar-brand" href="#">
-                <img src="img/navbar.png" alt="Brand logo" class="mainnavbar-brand-img navbar-brand-img mx-auto">
-            </a>
-            <div class="ml-auto">
-                <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
-                    <img src="icon/logout.svg" alt="Logout" width="16" height="16">
-                </button>
-            </div>
-        </div>
-    </nav>
 
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
         <div class="position-sticky">
@@ -47,6 +35,7 @@ if (!isset($_SESSION['ID'])) {
                 <a>DASHBOARD</a>
             </div>
             <div class="list-group list-group-flush mx-3 mt-4">
+                <hr>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true" id="userMenu">
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Data User</span>
                 </a>
@@ -54,6 +43,11 @@ if (!isset($_SESSION['ID'])) {
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple" id="encryptMenu">
                     <i class="fas fa-chart-area fa-fw me-3"></i><span>Data Enkripsi</span>
                 </a>
+                <hr>
+                <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
+                    <img src="icon/logout.svg" alt="Logout" width="16" height="16">Logout
+                </button>
+                <hr>
             </div>
         </div>
     </nav>
@@ -136,7 +130,7 @@ if (!isset($_SESSION['ID'])) {
                                             </tr>
                                     <?php    }
                                     } else {
-                                        echo "<tr><td colspan='4'><h2 class='text-center'>No record found!</h2></td></tr>";
+                                        echo "<tr><td colspan='5'><h2 class='text-center'>No record found!</h2></td></tr>";
                                     } ?>
                                 </tbody>
                             </table>

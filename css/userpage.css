@@ -221,7 +221,7 @@ body {
 
 #encryptBtn:disabled,
 #decryptBtn:disabled {
-  cursor: not-allowed !important;
+  cursor: not-allowed;
   opacity: 0.5;
 }
 
