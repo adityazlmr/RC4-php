@@ -1,6 +1,6 @@
 @media only screen and (max-width: 576px) {
   .main {
-    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -114,12 +114,17 @@ body {
 } */
 
 .btn-logout:hover {
-  background-color: #db3333;
+  background-color: #ff5757;
   border-color: #162b40;
+}
+
+.table-responsive {
+  max-height: 150px;
 }
 
 .containerTable {
   padding: 50px;
+  margin-left: 8%;
 }
 
 .card {
@@ -150,7 +155,6 @@ body {
 }
 .table td,
 .table th {
-  vertical-align: middle;
   text-align: center;
 }
 

@@ -198,8 +198,8 @@ if (!isset($_SESSION['ID'])) {
             <div class="row">
                 <div class="col-md-12 mb-5">
                     <div class="box3 about-content p-5 rounded shadow" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                        <h2 class="mb-3 text-center">Our Mission</h2>
-                        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h2 class="mb-3 text-center">Information</h2>
+                        <p class="text-center">Aplikasi ini berfugnsi untuk enkripsi dan dekripsi dokumen menggunakan algotritma RC4.</p>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,7 @@ if (!isset($_SESSION['ID'])) {
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Information</h5>
+                    <h5 class="modal-title" id="infoModalLabel">Guide</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -262,9 +262,9 @@ if (!isset($_SESSION['ID'])) {
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase text-white">Tugas Akhir</h5>
                     <p class="text-white">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                        molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                        aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                        Aplikasi ini dibuat untuk menyelesaikan tugas akhir dengan
+                        membuat aplikasi kriptografi metode RC4 berbasis web untuk
+                        mengamankan dokumen.
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">

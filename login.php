@@ -28,10 +28,10 @@ if (isset($_POST['submit'])) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if (md5($_POST['password']) == $row['password']) {
-                $_SESSION['ID'] = $row['id'];
+                $_SESSION['ID'] = $row['id_user'];
                 $_SESSION['ROLE'] = $row['role'];
                 $_SESSION['NAME'] = $row['name'];
-                $_SESSION['USERNAME'] = $row['username']; // Menyimpan username pada session
+                $_SESSION['USERNAME'] = $row['username'];
                 if ($row['role'] == 'admin') {
                     header("Location: adminpage.php");
                     die();

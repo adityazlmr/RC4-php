@@ -94,16 +94,14 @@ body {
 }
 
 .btn-logout {
-  float: right;
   border-width: 2px;
   background-color: #ffffff;
-  border-color: #ff0000;
-  color: #fff;
+  border-color: #162b40;
 }
 
 .btn-logout:hover {
-  background-color: #ff0000;
-  border-color: #acacac;
+  background-color: #ff5757;
+  border-color: #162b40;
 }
 #about {
   padding-top: 150px;
@@ -150,10 +148,6 @@ body {
 
 .animate__animated {
   animation-duration: 1s;
-}
-
-.animate__fadeInLeftBig {
-  animation-name: fadeInLeftBig;
 }
 
 .animate__wobble {
@@ -252,9 +246,7 @@ input[type="file"] {
 
 /* Style untuk box pada section */
 .about-content {
-  background-image: url("../img/background.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #445d77;
   padding: 30px;
   border-radius: 10px;
   margin-bottom: 30px;
@@ -313,31 +305,6 @@ input[type="file"] {
   transform: translateY(0);
 }
 
-/* Animasi fade right untuk box1 */
-#about [data-aos="fade-right"] {
-  opacity: 0;
-  transition-duration: 1s;
-  transition-timing-function: ease-out;
-  transform-origin: right;
-}
-
-#about [data-aos="fade-right"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Animasi fade left untuk box2 */
-#about [data-aos="fade-left"] {
-  opacity: 0;
-  transition-duration: 1s;
-  transition-timing-function: ease-out;
-  transform-origin: left;
-}
-
-#about [data-aos="fade-left"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
 /* Style untuk section di atas footer */
 section {
   margin-bottom: 100px;

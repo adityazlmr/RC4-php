@@ -22,7 +22,6 @@ if (!isset($_SESSION['ID'])) {
 <head>
     <title class="text">RC4 Admin</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/adminpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
 </head>
@@ -60,9 +59,14 @@ if (!isset($_SESSION['ID'])) {
                         <h2 class="card-title mb-0">Data User</h2>
                     </div>
                     <div class="card-body">
+                        <form class="form-inline mb-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search-user" placeholder="Search...">
+                            </div>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-hover">
-                                <thead>
+                                <thead class="sticky-top">
                                     <tr>
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
@@ -71,7 +75,7 @@ if (!isset($_SESSION['ID'])) {
                                         <th scope="col">Created At</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-body-user">
                                     <?php
                                     if ($_SESSION['ROLE'] == "admin") {
                                         $query = "SELECT * FROM users";
@@ -81,7 +85,7 @@ if (!isset($_SESSION['ID'])) {
                                         while ($row = $result->fetch_array()) {
                                     ?>
                                             <tr>
-                                                <td><?php echo $row['id'] ?></td>
+                                                <td><?php echo $row['id_user'] ?></td>
                                                 <td><?php echo $row['name'] ?></td>
                                                 <td><?php echo $row['username'] ?></td>
                                                 <td><?php echo $row['role'] ?></td>
@@ -95,15 +99,54 @@ if (!isset($_SESSION['ID'])) {
                             </table>
                         </div>
                     </div>
+                    <script>
+                        // function to filter table rows based on user input
+                        function filterTable() {
+                            var input = document.getElementById("search-user");
+                            var filter = input.value.toUpperCase();
+                            var table = document.getElementById("table-body-user");
+                            var rows = table.getElementsByTagName("tr");
+                            for (var i = 0; i < rows.length; i++) {
+                                var cells = rows[i].getElementsByTagName("td");
+                                var found = false;
+                                for (var j = 0; j < cells.length - 1; j++) {
+                                    var cell = cells[j];
+                                    if (cell) {
+                                        var text = cell.textContent || cell.innerText;
+                                        if (text.toUpperCase().indexOf(filter) > -1) {
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (found) {
+                                    rows[i].style.display = "";
+                                } else {
+                                    rows[i].style.display = "none";
+                                }
+                            }
+                        }
+
+                        // add event listener to input field
+                        var input = document.getElementById("search-user");
+                        input.addEventListener("keyup", filterTable);
+                    </script>
                 </div>
+
+
                 <div class="card shadow-sm table-card" id="table-enkripsi">
                     <div class="card-header">
                         <h2 class="card-title mb-0">Data Enkripsi</h2>
                     </div>
                     <div class="card-body">
+                        <form class="form-inline mb-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search-files" placeholder="Search...">
+                            </div>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-hover">
-                                <thead>
+                                <thead class="sticky-top">
                                     <tr>
                                         <th scope="col">Id</th>
                                         <th scope="col">Username</th>
@@ -112,7 +155,7 @@ if (!isset($_SESSION['ID'])) {
                                         <th scope="col">Created At</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-body-files">
                                     <?php
                                     if ($_SESSION['ROLE'] == "admin") {
                                         $query = "SELECT * FROM files";
@@ -122,7 +165,7 @@ if (!isset($_SESSION['ID'])) {
                                         while ($row = $result->fetch_array()) {
                                     ?>
                                             <tr>
-                                                <td><?php echo $row['id'] ?></td>
+                                                <td><?php echo $row['id_files'] ?></td>
                                                 <td><?php echo $row['username'] ?></td>
                                                 <td><?php echo $row['file_name'] ?></td>
                                                 <td><?php echo $row['encryption_key'] ?></td>
@@ -136,6 +179,39 @@ if (!isset($_SESSION['ID'])) {
                             </table>
                         </div>
                     </div>
+                    <script>
+                        // function to filter table rows based on user input
+                        function filterTable() {
+                            var input = document.getElementById("search-files");
+                            var filter = input.value.toUpperCase();
+                            var table = document.getElementById("table-body-files");
+                            var rows = table.getElementsByTagName("tr");
+                            for (var i = 0; i < rows.length; i++) {
+                                var cells = rows[i].getElementsByTagName("td");
+                                var found = false;
+                                for (var j = 0; j < cells.length - 2; j++) {
+                                    var cell = cells[j];
+                                    if (cell) {
+                                        var text = cell.textContent || cell.innerText;
+                                        if (text.toUpperCase().indexOf(filter) > -1) {
+                                            found = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (found) {
+                                    rows[i].style.display = "";
+                                } else {
+                                    rows[i].style.display = "none";
+                                }
+                            }
+                        }
+
+                        // add event listener to input field
+                        var input = document.getElementById("search-files");
+                        input.addEventListener("keyup", filterTable);
+                    </script>
+
                 </div>
             </div>
         </div>
