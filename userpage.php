@@ -290,7 +290,7 @@ if (!isset($_SESSION['ID'])) {
 
             </div>
         </div>
-        <div class="copyright text-center p-3" style="background-color: #c5c5c5;">
+        <div class="copyright text-center p-3">
             © 2023 All rights reserved.
         </div>
     </footer>

@@ -4,18 +4,11 @@
   }
 }
 
-html {
-  overflow: auto;
-  position: relative;
-  min-height: 100%;
-  scroll-behavior: smooth;
-}
 body {
-  overflow: auto;
   font: 14px sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  overflow-x: hidden;
 }
 .main {
   min-height: 100%;
@@ -119,10 +112,10 @@ body {
 }
 
 .table-responsive {
-  max-height: 150px;
+  max-height: 185px;
 }
 
-.containerTable {
+.container-fluid {
   padding: 50px;
   margin-left: 8%;
 }

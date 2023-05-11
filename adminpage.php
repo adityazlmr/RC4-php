@@ -22,11 +22,12 @@ if (!isset($_SESSION['ID'])) {
 <head>
     <title class="text">RC4 Admin</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/adminpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
 </head>
 
-<body style="background-image: url('img/background.svg'); display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+<body style="background-image: url('img/background.svg');">
 
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
         <div class="position-sticky">
@@ -51,7 +52,7 @@ if (!isset($_SESSION['ID'])) {
         </div>
     </nav>
 
-    <div class="container-fluid containerTable">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8">
                 <div class="card shadow-sm table-card" id="table-user">
