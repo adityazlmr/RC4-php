@@ -7,6 +7,9 @@ if (isset($_SESSION['ID'])) {
     if ($_SESSION['ROLE'] == 'admin') {
         header("Location: adminpage.php");
         exit();
+    } elseif ($_SESSION['ROLE'] == 'superadmin') {
+        header("Location: superadminpage.php");
+        exit();
     } else {
         header("Location: userpage.php");
         exit();
@@ -14,7 +17,6 @@ if (isset($_SESSION['ID'])) {
 }
 
 // Include database connectivity
-
 include_once('config.php');
 
 if (isset($_POST['submit'])) {
@@ -35,6 +37,9 @@ if (isset($_POST['submit'])) {
                 if ($row['role'] == 'admin') {
                     header("Location: adminpage.php");
                     die();
+                } elseif ($row['role'] == 'superadmin') {
+                    header("Location: superadminpage.php");
+                    die();
                 } else {
                     header("Location: userpage.php");
                     die();
@@ -43,7 +48,7 @@ if (isset($_POST['submit'])) {
                 $errorMsg = "Incorrect password";
             }
         } else {
-            $errorMsg = "No user found on this username";
+            $errorMsg = "No user found with this username";
         }
     }
 }

@@ -2,20 +2,31 @@
 // Include database connection file
 include_once('config.php');
 if (isset($_POST['submit'])) {
-
     $username = $con->real_escape_string($_POST['username']);
     $password = $con->real_escape_string(md5($_POST['password']));
     $name     = $con->real_escape_string($_POST['name']);
     $role     = $con->real_escape_string($_POST['role']);
-    $query  = "INSERT INTO users (name,username,password,role) VALUES ('$name','$username','$password','$role')";
-    $result = $con->query($query);
-    if ($result == true) {
-        header("Location:login.php");
-        die();
+
+    // Cek apakah username sudah ada di database
+    $checkQuery = "SELECT * FROM users WHERE username = '$username'";
+    $checkResult = $con->query($checkQuery);
+
+    if ($checkResult->num_rows > 0) {
+        $errorMsg = "Username already exists. Please choose a different username.";
     } else {
-        $errorMsg  = "You are not Registred..Please Try again";
+        // Username belum ada di database, lakukan operasi INSERT
+        $query  = "INSERT INTO users (name, username, password, role) VALUES ('$name','$username','$password','$role')";
+        $result = $con->query($query);
+
+        if ($result == true) {
+            header("Location: login.php");
+            die();
+        } else {
+            $errorMsg  = "You are not registered. Please try again.";
+        }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,13 +101,14 @@ if (isset($_POST['submit'])) {
             <!-- <div class="form-group">
                 <label class="text" for="role">Role:</label>
                 <select class="form-control" name="role" required="">
+                    <option value="superadmin">Super Admin</option>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>
             </div> -->
             <div class="form-group">
                 <label class="text">Role:</label>
-                <input type="text" class="form-control" name="role" value="User" readonly>
+                <input type="text" class="form-control" name="role" value="user" readonly>
             </div>
             <div class="form-group">
                 <p class="text">Already have account ?<a href="login.php"> Login</a></p>

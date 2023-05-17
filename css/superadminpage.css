@@ -102,9 +102,35 @@ body {
   color: #162b40;
 }
 
+#add-user-btn {
+  margin-bottom: 10px;
+  background-color: #162b40;
+  border-color: #162b40;
+  color: #fff;
+  font-weight: bold;
+}
+
+#add-user-btn:hover {
+  background-color: #27c589;
+  border-color: #27c589;
+}
+
+.btn-add {
+  margin-top: 10px;
+  background-color: #162b40;
+  border-color: #162b40;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-add:hover {
+  background-color: #27c589;
+  border-color: #27c589;
+  color: #fff;
+}
 /* .list-group img {
-  float: left;
-} */
+    float: left;
+  } */
 
 .btn-logout:hover {
   background-color: #ff5757;
@@ -181,16 +207,6 @@ body {
   display: none;
 }
 
-.form-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
 #formCont .container {
   max-width: 800px;
   margin: 0 auto;
@@ -201,6 +217,17 @@ body {
   box-shadow: 0px 0px 10px #383838;
 }
 
+.form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 .form-control {
   border-radius: 0;
   border: none;
@@ -209,4 +236,42 @@ body {
   font-size: 1.1rem;
 
   margin-bottom: 1rem;
+}
+
+#encryptBtn,
+#decryptBtn {
+  border-radius: 0;
+  background-color: #162b40;
+  border-color: #162b40;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+#encryptBtn:hover,
+#decryptBtn:hover {
+  background-color: #7286d3;
+  border-color: #7286d3;
+}
+
+#encryptBtn:disabled,
+#decryptBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.modal-body {
+  font-size: 1.1rem;
+}
+input[type="file"] {
+  overflow: hidden;
+}
+input[type="password"],
+input[type="file"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }

@@ -68,13 +68,20 @@ if (isset($_POST['encrypt'])) {
 
     // Cek apakah key memenuhi syarat
     if (!is_valid_key($encryptionKey)) {
-        echo '<script>alert("Encryption Key Minimal 8 Karakter");window.location.href = "userpage.php";</script>';
+        echo '<script>alert("Encryption Key Minimal 8 Karakter");window.location.href = "";</script>';
     } else if (!isset($_FILES['fileToEncrypt']['tmp_name']) || empty($_FILES['fileToEncrypt']['tmp_name'])) {
         // Cek apakah file telah diinput
-        echo '<script>alert("Mohon pilih file yang akan dienkripsi.");window.location.href = "userpage.php";</script>';
+        echo '<script>alert("Mohon pilih file yang akan dienkripsi."); window.history.back();</script>';
     } else {
         $fileToEncrypt = $_FILES['fileToEncrypt']['tmp_name'];
         $fileName = basename($_FILES["fileToEncrypt"]["name"]);
+
+        // Cek ekstensi file
+        $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+        if ($fileExtension !== 'pdf') {
+            echo '<script>alert("Hanya file dengan ekstensi PDF yang diperbolehkan."); window.history.back();;</script>';
+            exit;
+        }
         $encryptedFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
         // Baca file yang akan dienkripsi
         $data = file_get_contents($fileToEncrypt);
@@ -101,7 +108,7 @@ if (isset($_POST['encrypt'])) {
 
 
         // Redirect ke halaman sukses
-        echo '<script>alert("File berhasil dienkripsi dan disimpan di direktori ' . $localDir . '");window.location.href = "userpage.php";</script>';
+        echo '<script>alert("File berhasil dienkripsi dan disimpan di direktori ' . $localDir . '"); window.history.back();;</script>';
     }
 }
 
@@ -111,7 +118,7 @@ if (isset($_POST['decrypt'])) {
 
     // Cek apakah key memenuhi syarat
     if (!is_valid_key($decryptionKey)) {
-        echo '<script>alert("Decryption Key Minimal 8 Karakter, 1 Huruf Kapital dan 1 Angka..");window.location.href = "userpage.php"</script>';
+        echo '<script>alert("Decryption Key Minimal 8 Karakter, 1 Huruf Kapital dan 1 Angka.."); window.history.back();</script>';
     } else {
 
         // Mendapatkan nama file yang akan didekripsi
@@ -130,6 +137,14 @@ if (isset($_POST['decrypt'])) {
 
         $fileToDecrypt = $_FILES['fileToDecrypt']['tmp_name'];
         $fileName = basename($_FILES["fileToDecrypt"]["name"]);
+
+        // Cek ekstensi file
+        $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+        if ($fileExtension !== 'pdf') {
+            echo '<script>alert("Hanya file dengan ekstensi PDF yang diperbolehkan."); window.history.back();</script>';
+            exit;
+        }
+
         $decryptedFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
 
         // Baca file yang akan didekripsi
@@ -144,6 +159,6 @@ if (isset($_POST['decrypt'])) {
         file_put_contents($decryptedFilePath, $decryptedData);
 
         // Redirect ke halaman sukses
-        echo '<script>alert("File berhasil didekripsi dan disimpan di direktori ' . $localDir . '");window.location.href = "userpage.php";</script>';
+        echo '<script>alert("File berhasil didekripsi dan disimpan di direktori ' . $localDir . '"); window.history.back();</script>';
     }
 }

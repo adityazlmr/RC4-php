@@ -20,11 +20,14 @@ if (!isset($_SESSION['ID'])) {
 <html>
 
 <head>
-    <title class="text">RC4 Admin</title>
+    <title class="text">Admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/adminpage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-image: url('img/background.svg');">
@@ -37,16 +40,14 @@ if (!isset($_SESSION['ID'])) {
             <div class="list-group list-group-flush mx-3 mt-4">
                 <hr>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true" id="userMenu">
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Data User</span>
+                    <i class="fas fa-user me-3"></i><span> Data User</span>
                 </a>
                 <hr>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple" id="encryptMenu">
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Data Enkripsi</span>
+                    <i class="fas fa-file-alt me-3"></i><span> Data Enkripsi</span>
                 </a>
                 <hr>
-                <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
-                    <img src="icon/logout.svg" alt="Logout" width="16" height="16">Logout
-                </button>
+                <button class="btn btn-logout fas fa-sign-out-alt" onclick="location.href='logout.php'" title="Logout"> Logout</button>
                 <hr>
             </div>
         </div>

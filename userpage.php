@@ -20,7 +20,7 @@ if (!isset($_SESSION['ID'])) {
 <html>
 
 <head>
-    <title class="text">RC4 User</title>
+    <title class="text">User</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/userpage.css">
@@ -70,9 +70,7 @@ if (!isset($_SESSION['ID'])) {
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-logout" onclick="location.href='logout.php'" title="Logout">
-                <img src="icon/logout.svg" alt="Logout" width="16" height="16">
-            </button>
+            <button class="btn btn-logout fas fa-sign-out-alt" onclick="location.href='logout.php'" title="Logout"></button>
         </div>
     </nav>
 
