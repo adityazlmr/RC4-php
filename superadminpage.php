@@ -15,8 +15,50 @@ if (!isset($_SESSION['ID'])) {
     }
 }
 
-?>
+include_once("config.php");
+// Cek apakah form telah di-submit
+if (isset($_POST['submit'])) {
+    // Ambil nilai dari form
+    $username = $con->real_escape_string($_POST['username']);
+    $password = $con->real_escape_string(md5($_POST['password']));
+    $name     = $con->real_escape_string($_POST['name']);
+    $role     = $con->real_escape_string($_POST['role']);
 
+    // Cek apakah username sudah ada di database
+    $checkQuery = "SELECT * FROM users WHERE username = '$username'";
+    $checkResult = $con->query($checkQuery);
+
+    if ($checkResult->num_rows > 0) {
+        $errorMsg = "Username already exists. Please choose a different username.";
+    } else {
+        // Username belum ada di database, lakukan operasi INSERT
+        $query  = "INSERT INTO users (name, username, password, role) VALUES ('$name','$username','$password','$role')";
+        $result = $con->query($query);
+
+        if ($result) {
+            echo '<script>alert("User added successfully.");</script>';
+            header("Location: superadminpage.php");
+            die();
+        } else {
+            $errorMsg = "Failed to add user. Please try again.";
+        }
+    }
+}
+
+include_once("config.php");
+if (isset($_POST['delete'])) {
+    $deleteId = $con->real_escape_string($_POST['delete_id']);
+    $deleteQuery = "DELETE FROM users WHERE id_user = '$deleteId'";
+    $deleteResult = $con->query($deleteQuery);
+
+    if ($deleteResult) {
+        echo '<script>alert("User deleted successfully."); window.location.href = window.location.href;</script>';
+        // Ganti 'User deleted successfully.' dengan pesan atau tindakan yang diinginkan setelah berhasil menghapus pengguna.
+    } else {
+        echo '<script>alert("Failed to delete user. Please try again.");</script>';
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -71,11 +113,10 @@ if (!isset($_SESSION['ID'])) {
                         <h2 class="card-title mb-0">Data User</h2>
                     </div>
                     <div class="card-body">
-                        <form class="form-inline mb-3">
-                            <button class="btn btn-add" id="add-user-btn">+ User</button>
-                            <!-- Form untuk menambahkan user -->
+                        <div class="form-inline mb-3">
+                            <button class="btn btn-add" id="add-user-btn">Add User</button>
                             <div id="add-user-form" style="display: none;">
-                                <form action="" method="POST">
+                                <form action="" method="POST" autocomplete="off">
                                     <div class="form-group">
                                         <label for="name">Name:</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
@@ -102,7 +143,20 @@ if (!isset($_SESSION['ID'])) {
                             <div class="form-group">
                                 <input type="text" class="form-control" id="search-user" placeholder="Search...">
                             </div>
-                        </form>
+                        </div>
+
+                        <script>
+                            var addUserBtn = document.getElementById("add-user-btn");
+                            var addUserForm = document.getElementById("add-user-form");
+
+                            addUserBtn.addEventListener("click", function() {
+                                if (addUserForm.style.display === "none") {
+                                    addUserForm.style.display = "block";
+                                } else {
+                                    addUserForm.style.display = "none";
+                                }
+                            });
+                        </script>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="sticky-top">
@@ -112,6 +166,7 @@ if (!isset($_SESSION['ID'])) {
                                         <th scope="col">Username</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Created At</th>
+                                        <th scope="col">Action</th> <!-- Tambah kolom aksi -->
                                     </tr>
                                 </thead>
                                 <tbody id="table-body-user">
@@ -129,59 +184,24 @@ if (!isset($_SESSION['ID'])) {
                                                 <td><?php echo $row['username'] ?></td>
                                                 <td><?php echo $row['role'] ?></td>
                                                 <td><?php echo $row['created_at'] ?></td>
+                                                <td>
+                                                    <form method="POST">
+                                                        <input type="hidden" name="delete_id" value="<?php echo $row['id_user'] ?>">
+                                                        <button type="submit" name="delete" class="btn btn-delete">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
-                                    <?php    }
+                                    <?php
+                                        }
                                     } else {
-                                        echo "<tr><td colspan='5'><h2 class='text-center'>No record found!</h2></td></tr>";
-                                    } ?>
+                                        echo "<tr><td colspan='6'><h2 class='text-center'>No record found!</h2></td></tr>";
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <script>
-                        var addUserBtn = document.getElementById("add-user-btn");
-                        var addUserForm = document.getElementById("add-user-form");
-
-                        addUserBtn.addEventListener("click", function() {
-                            if (addUserForm.style.display === "none") {
-                                addUserForm.style.display = "block";
-                            } else {
-                                addUserForm.style.display = "none";
-                            }
-                        });
-                    </script>
-
-                    <?php
-                    // Cek apakah form telah di-submit
-                    if (isset($_POST['submit'])) {
-
-                        // Ambil nilai dari form
-                        $username = $con->real_escape_string($_POST['username']);
-                        $password = $con->real_escape_string(md5($_POST['password']));
-                        $name     = $con->real_escape_string($_POST['name']);
-                        $role     = $con->real_escape_string($_POST['role']);
-
-                        // Cek apakah username sudah ada di database
-                        $checkQuery = "SELECT * FROM users WHERE username = '$username'";
-                        $checkResult = $con->query($checkQuery);
-
-                        if ($checkResult->num_rows > 0) {
-                            $errorMsg = "Username already exists. Please choose a different username.";
-                        } else {
-                            // Username belum ada di database, lakukan operasi INSERT
-                            $query  = "INSERT INTO users (name, username, password, role) VALUES ('$name','$username','$password','$role')";
-                            $result = $con->query($query);
-
-                            if ($result == true) {
-
-                                die();
-                            } else {
-                                $errorMsg  = "Failed to add user. Please try again.";
-                            }
-                        }
-                    }
-                    ?>
                     <script>
                         // function to filter table rows based on user input
                         function filterTable() {
@@ -471,8 +491,6 @@ if (!isset($_SESSION['ID'])) {
             });
         </script>
     </div>
-
-
     <link rel="stylesheet" href="css/superadminpage.css">
 </body>
 

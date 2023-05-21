@@ -117,6 +117,7 @@ body {
 
 .btn-add {
   margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #162b40;
   border-color: #162b40;
   color: #fff;
@@ -128,9 +129,20 @@ body {
   border-color: #27c589;
   color: #fff;
 }
-/* .list-group img {
-    float: left;
-  } */
+
+.btn-delete {
+  padding: 5px;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #162b40;
+  align-content: center;
+}
+
+.btn-delete:hover {
+  background-color: #e95050;
+  border-color: #e95050;
+  color: #fff;
+}
 
 .btn-logout:hover {
   background-color: #ff5757;
