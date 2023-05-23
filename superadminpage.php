@@ -166,7 +166,7 @@ if (isset($_POST['delete'])) {
                                         <th scope="col">Username</th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Created At</th>
-                                        <th scope="col">Action</th> <!-- Tambah kolom aksi -->
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="table-body-user">
@@ -187,7 +187,7 @@ if (isset($_POST['delete'])) {
                                                 <td>
                                                     <form method="POST">
                                                         <input type="hidden" name="delete_id" value="<?php echo $row['id_user'] ?>">
-                                                        <button type="submit" name="delete" class="btn btn-delete">Delete</button>
+                                                        <button type="submit" name="delete" class="btn btn-delete fas fa-trash-alt" onclick="return confirmDelete()"></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -198,6 +198,12 @@ if (isset($_POST['delete'])) {
                                     }
                                     ?>
                                 </tbody>
+                                <script>
+                                    function confirmDelete() {
+                                        return confirm("Are you sure you want to delete this data?");
+                                    }
+                                </script>
+
                             </table>
                         </div>
                     </div>
@@ -320,7 +326,7 @@ if (isset($_POST['delete'])) {
                 <section id="formCont">
                     <div class="container" id="encryptForm" style="display: none;">
                         <h2 class="text-center mb-4">Encryption</h2>
-                        <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form">
+                        <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form" autocomplete="off">
                             <div class="mb-4">
                                 <label for="encryptionKey" class="form-label">Encryption Key</label>
                                 <input type="password" class="form-control" id="encryptionKey" placeholder="minimal 8 karakter" name="encryptionKey" required>
@@ -361,7 +367,7 @@ if (isset($_POST['delete'])) {
 
                     <div class="container" id="decryptForm" style="display: none;">
                         <h2 class="text-center mb-4">Decryption</h2>
-                        <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form">
+                        <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form" autocomplete="off">
                             <div class="mb-4">
                                 <label for="decryptionKey" class="form-label">Decryption Key</label>
                                 <input type="password" class="form-control" id="decryptionKey" placeholder="gunakan key yang sama pada saat encrypt" name="decryptionKey" required>

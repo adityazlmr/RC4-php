@@ -86,8 +86,17 @@ if (isset($_POST['encrypt'])) {
         // Baca file yang akan dienkripsi
         $data = file_get_contents($fileToEncrypt);
 
+        // Waktu mulai proses enkripsi
+        $startTime = microtime(true);
+
         // Enkripsi data menggunakan algoritma RC4
         $encryptedData = rc4($encryptionKey, $data);
+
+        // Waktu selesai proses enkripsi
+        $endTime = microtime(true);
+
+        // Durasi proses enkripsi dalam detik
+        $encryptionTime = $endTime - $startTime;
 
         // Simpan data yang telah dienkripsi ke dalam file di direktori lokal
         $localDir = 'D:/RC4/soal ujian/';
@@ -106,11 +115,11 @@ if (isset($_POST['encrypt'])) {
         mysqli_query($con, $query);
         mysqli_close($con);
 
-
         // Redirect ke halaman sukses
-        echo '<script>alert("File berhasil dienkripsi dan disimpan di direktori ' . $localDir . '"); window.history.back();;</script>';
+        echo '<script>alert("File berhasil didekripsi. Durasi proses enkripsi: ' . $encryptionTime . ' detik"); window.history.back();</script>';
     }
 }
+
 
 
 if (isset($_POST['decrypt'])) {
@@ -130,35 +139,53 @@ if (isset($_POST['decrypt'])) {
         $row = mysqli_fetch_assoc($result);
 
         if ($row) {
-            // Hapus data dari tabel 'files'
-            $query = "DELETE FROM files WHERE file_name = '$fileName'";
-            mysqli_query($con, $query);
+            // Dekripsi file hanya jika password dekripsi benar
+            if ($row['encryption_key'] === $decryptionKey) {
+                // Hapus data dari tabel 'files'
+                $query = "DELETE FROM files WHERE file_name = '$fileName'";
+                mysqli_query($con, $query);
+
+                $fileToDecrypt = $_FILES['fileToDecrypt']['tmp_name'];
+                $fileName = basename($_FILES["fileToDecrypt"]["name"]);
+
+                // Cek ekstensi file
+                $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+                if ($fileExtension !== 'pdf') {
+                    echo '<script>alert("Hanya file dengan ekstensi PDF yang diperbolehkan."); window.history.back();</script>';
+                    exit;
+                }
+
+                $decryptedFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
+
+                // Baca file yang akan didekripsi
+                $data = file_get_contents($fileToDecrypt);
+
+                // Waktu mulai proses dekripsi
+                $startTime = microtime(true);
+
+                // Dekripsi data menggunakan algoritma RC4
+                $decryptedData = rc4($decryptionKey, $data);
+
+                // Waktu selesai proses dekripsi
+                $endTime = microtime(true);
+
+                // Durasi proses dekripsi dalam detik
+                $decryptionTime = $endTime - $startTime;
+
+                // Simpan file yang telah didekripsi ke dalam direktori lokal
+                $localDir = 'D:/RC4/soal ujian/';
+                $decryptedFilePath = $localDir . $decryptedFileName;
+                file_put_contents($decryptedFilePath, $decryptedData);
+
+                // Redirect ke halaman sukses
+                echo '<script>alert("File berhasil didekripsi. Durasi proses dekripsi: ' . $decryptionTime . ' detik"); window.history.back();</script>';
+            } else {
+                // Password dekripsi salah, batalkan proses dekripsi
+                echo '<script>alert("Password dekripsi salah. Proses dekripsi dibatalkan."); window.history.back();</script>';
+            }
+        } else {
+            // File tidak terdaftar dalam database, batalkan proses dekripsi
+            echo '<script>alert("File tidak terdaftar dalam database. Proses dekripsi dibatalkan."); window.history.back();</script>';
         }
-
-        $fileToDecrypt = $_FILES['fileToDecrypt']['tmp_name'];
-        $fileName = basename($_FILES["fileToDecrypt"]["name"]);
-
-        // Cek ekstensi file
-        $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-        if ($fileExtension !== 'pdf') {
-            echo '<script>alert("Hanya file dengan ekstensi PDF yang diperbolehkan."); window.history.back();</script>';
-            exit;
-        }
-
-        $decryptedFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.' . pathinfo($fileName, PATHINFO_EXTENSION);
-
-        // Baca file yang akan didekripsi
-        $data = file_get_contents($fileToDecrypt);
-
-        // Dekripsi data menggunakan algoritma RC4
-        $decryptedData = rc4($decryptionKey, $data);
-
-        // Simpan file yang telah didekripsi ke dalam direktori lokal
-        $localDir = 'D:/RC4/soal ujian/';
-        $decryptedFilePath = $localDir . $decryptedFileName;
-        file_put_contents($decryptedFilePath, $decryptedData);
-
-        // Redirect ke halaman sukses
-        echo '<script>alert("File berhasil didekripsi dan disimpan di direktori ' . $localDir . '"); window.history.back();</script>';
     }
 }
