@@ -77,7 +77,7 @@ if (!isset($_SESSION['ID'])) {
     <section id="formCont">
         <div class="container" data-aos="fade-up" id="encryptForm">
             <h2 class="text-center mb-4 animate__animated animate__wobble">Encryption</h2>
-            <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form">
+            <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form" autocomplete="off">
                 <div class="mb-4">
                     <label for="encryptionKey" class="form-label animate__animated animate__wobble">Encryption Key</label>
                     <input type="password" class="form-control" id="encryptionKey" placeholder="minimal 8 karakter" name="encryptionKey" required>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['ID'])) {
 
         <div class="container" data-aos="fade-up" id="decryptForm">
             <h2 class="text-center mb-4 animate__animated animate__wobble">Decryption</h2>
-            <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form">
+            <form action="rc4.php" method="post" enctype="multipart/form-data" id="rc4-form" autocomplete="off">
                 <div class="mb-4">
                     <label for="decryptionKey" class="form-label animate__animated animate__wobble">Decryption Key</label>
                     <input type="password" class="form-control" id="decryptionKey" placeholder="gunakan key yang sama pada saat encrypt" name="decryptionKey" required>

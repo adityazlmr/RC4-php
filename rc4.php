@@ -116,7 +116,7 @@ if (isset($_POST['encrypt'])) {
         mysqli_close($con);
 
         // Redirect ke halaman sukses
-        echo '<script>alert("File berhasil didekripsi. Durasi proses enkripsi: ' . $encryptionTime . ' detik"); window.history.back();</script>';
+        echo '<script>alert("File berhasil dienkripsi. Durasi proses enkripsi: ' . $encryptionTime . ' detik"); window.history.back();</script>';
     }
 }
 
@@ -181,7 +181,7 @@ if (isset($_POST['decrypt'])) {
                 echo '<script>alert("File berhasil didekripsi. Durasi proses dekripsi: ' . $decryptionTime . ' detik"); window.history.back();</script>';
             } else {
                 // Password dekripsi salah, batalkan proses dekripsi
-                echo '<script>alert("Password dekripsi salah. Proses dekripsi dibatalkan."); window.history.back();</script>';
+                echo '<script>alert("Key dekripsi salah. Proses dekripsi dibatalkan."); window.history.back();</script>';
             }
         } else {
             // File tidak terdaftar dalam database, batalkan proses dekripsi

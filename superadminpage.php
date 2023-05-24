@@ -92,11 +92,11 @@ if (isset($_POST['delete'])) {
                 </a>
                 <hr>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple" id="encryptMenu">
-                    <i class="fas fa-lock me-3"></i><span> Enkripsi</span>
+                    <i class="fas fa-lock me-3"></i><span> Encrypt</span>
                 </a>
                 <hr>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple" id="decryptMenu">
-                    <i class="fas fa-lock-open me-3"></i><span> Dekripsi</span>
+                    <i class="fas fa-lock-open me-3"></i><span> Decrypt</span>
                 </a>
                 <hr>
                 <button class="btn btn-logout fas fa-sign-out-alt" onclick="location.href='logout.php'" title="Logout"> Logout</button>
