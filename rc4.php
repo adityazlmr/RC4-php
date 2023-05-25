@@ -76,6 +76,14 @@ if (isset($_POST['encrypt'])) {
         $fileToEncrypt = $_FILES['fileToEncrypt']['tmp_name'];
         $fileName = basename($_FILES["fileToEncrypt"]["name"]);
 
+        // Cek apakah file sudah terdaftar di database
+        $query = "SELECT * FROM files WHERE file_name = '$fileName'";
+        $result = mysqli_query($con, $query);
+        if (mysqli_num_rows($result) > 0) {
+            echo '<script>alert("File sudah terenkripsi."); window.history.back();</script>';
+            exit;
+        }
+
         // Cek ekstensi file
         $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
         if ($fileExtension !== 'pdf') {

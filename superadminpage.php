@@ -157,6 +157,7 @@ if (isset($_POST['delete'])) {
                                 }
                             });
                         </script>
+
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="sticky-top">
@@ -177,6 +178,13 @@ if (isset($_POST['delete'])) {
                                     $result = $con->query($query);
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_array()) {
+                                            $userId = $row['id_user'];
+                                            $deleteButton = '<button type="submit" name="delete" class="btn btn-delete fas fa-trash-alt" onclick="return confirmDelete()"></button>';
+
+                                            // Memeriksa apakah ID dalam array yang ingin disembunyikan
+                                            if (in_array($userId, [1, 2, 3])) {
+                                                $deleteButton = ''; // Menyembunyikan tombol delete
+                                            }
                                     ?>
                                             <tr>
                                                 <td><?php echo $row['id_user'] ?></td>
@@ -187,7 +195,7 @@ if (isset($_POST['delete'])) {
                                                 <td>
                                                     <form method="POST">
                                                         <input type="hidden" name="delete_id" value="<?php echo $row['id_user'] ?>">
-                                                        <button type="submit" name="delete" class="btn btn-delete fas fa-trash-alt" onclick="return confirmDelete()"></button>
+                                                        <?php echo $deleteButton; ?>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -203,7 +211,6 @@ if (isset($_POST['delete'])) {
                                         return confirm("Are you sure you want to delete this data?");
                                     }
                                 </script>
-
                             </table>
                         </div>
                     </div>
