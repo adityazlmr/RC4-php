@@ -72,7 +72,8 @@ if (isset($_POST['submit'])) {
     <style>
         body {
             font: 14px sans-serif;
-            background-color: #222831;
+            background-image: url("img/jkl.jpeg");
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -83,7 +84,7 @@ if (isset($_POST['submit'])) {
             width: 360px;
             padding: 20px;
             margin: auto;
-            background-color: #393E46;
+            background-color: rgba(57, 62, 70, 0.8);
             border: 1px solid #393E46;
             border-radius: 5px;
             box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);

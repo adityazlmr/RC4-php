@@ -102,10 +102,6 @@ body {
   color: #162b40;
 }
 
-/* .list-group img {
-  float: left;
-} */
-
 .btn-logout:hover {
   background-color: #ff5757;
   border-color: #162b40;
@@ -124,12 +120,13 @@ body {
   border: none;
   margin-top: 50px;
   border-radius: 10px;
+  background-color: rgba(197, 197, 197, 0.7);
   box-shadow: 0px 3px 3px #c5c5c5;
 }
 
 .card-header {
   border-radius: 10px 10px 0 0;
-  background-color: #c5c5c5;
+  background-color: rgba(197, 197, 197, 0.7);
 }
 
 .card-title {
@@ -143,7 +140,7 @@ body {
   border-spacing: 0;
   width: 100%;
   background-color: #162b40;
-  box-shadow: 0px 3px 3px #c9c9c9;
+  box-shadow: 0px 3px 3px rgba(197, 197, 197, 0.7);
   border-radius: 10px;
 }
 .table td,
@@ -152,7 +149,7 @@ body {
 }
 
 .table thead th {
-  background-color: #f5f5f5;
+  background-color: rgba(197, 197, 197, 0.7);
   color: #162b40;
   font-size: 14px;
   font-weight: bold;
@@ -169,7 +166,7 @@ body {
 }
 
 .table tbody tr:hover {
-  background-color: #c5c5c5;
+  background-color: rgba(197, 197, 197, 0.7);
   color: #162b40;
 }
 
