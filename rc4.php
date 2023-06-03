@@ -30,6 +30,7 @@ function rc4($key, $data)
     $len = count($key);
     for ($i = 0; $i < 256; $i++) {
         $j = ($j + $s[$i] + $key[$i % $len]) % 256;
+        //Swap
         $tmp = $s[$i];
         $s[$i] = $s[$j];
         $s[$j] = $tmp;
@@ -42,6 +43,7 @@ function rc4($key, $data)
     for ($k = 0; $k < $len; $k++) {
         $i = ($i + 1) % 256;
         $j = ($j + $s[$i]) % 256;
+        //Swap
         $tmp = $s[$i];
         $s[$i] = $s[$j];
         $s[$j] = $tmp;
