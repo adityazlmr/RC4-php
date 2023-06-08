@@ -258,15 +258,15 @@ if (!isset($_SESSION['ID'])) {
         <div class="container p-4">
             <div class="row">
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase text-white">Tugas Akhir</h5>
-                    <p class="text-white">
+                    <h5 class="text-uppercase">Tugas Akhir</h5>
+                    <p>
                         Aplikasi ini dibuat untuk menyelesaikan tugas akhir dengan
                         membuat aplikasi kriptografi metode RC4 berbasis web untuk
                         mengamankan dokumen.
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase text-white">Stay Connected</h5>
+                    <h5 class="text-uppercase">Stay Connected</h5>
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-primary btn-floating mx-2" href="https://www.facebook.com/" target="_blank" role="button">
                             <img src="icon/facebook.png" alt="Facebook" width="25px" height="25px">
@@ -285,7 +285,6 @@ if (!isset($_SESSION['ID'])) {
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="copyright text-center p-3">
